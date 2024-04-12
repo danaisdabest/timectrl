@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>timectrl demo &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'timectrl-demo1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftimectrl-demo1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/timectrl-demo1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>timectrl demo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="timectrl-demo">
+<h1>timectrl demo<a class="headerlink" href="#timectrl-demo" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+<span class="kn">import</span> <span class="nn">pydantic</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span> <span class="k">as</span> <span class="n">PydanticBaseModel</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">PydanticBaseModel</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">arbitrary_types_allowed</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">class</span> <span class="nc">SpreadDf</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">amounts</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span>
+    <span class="n">new_dates</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span>
+
+<span class="k">class</span> <span class="nc">OrigDf</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">amounts</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span>
+    <span class="n">dates</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span>
+    
+<span class="k">class</span> <span class="nc">CollapsedDf</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">amounts</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span>
+    <span class="n">closest_new_date</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span>
+
+
+<span class="k">class</span> <span class="nc">Spreader</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_closest_old_date</span><span class="p">(</span><span class="n">new_dates</span><span class="p">,</span> <span class="n">old_dates</span><span class="p">):</span>        
+        <span class="c1"># add trailing ending date to old_dates </span>
+        <span class="n">trailing_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">old_dates</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">365</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="c1"># TODO: use max spread period</span>
+        <span class="n">old_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">old_dates</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">trailing_date</span><span class="p">])</span>
+        <span class="c1"># TODO: add spread boundaries on 1/1/yyyy</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">new_dates</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">old_dates</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="c1"># change per arrears/adv # e.g. right=False/True makes a diff here </span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_spread_sum_evenly</span><span class="p">(</span><span class="n">amounts</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_repeat_average</span><span class="p">(</span><span class="n">amounts</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="nb">sum</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">amounts</span><span class="p">)]</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_repeat_last</span><span class="p">(</span><span class="n">amounts</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">amounts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_spread_amounts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spread_sum_evenly</span><span class="p">(</span><span class="n">amounts</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_validate_spread_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collapsed_df</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check that all dates in collapsed_df are in new_dates</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">collapsed_df</span><span class="o">.</span><span class="n">closest_new_date</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">new_dates</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">&quot;All dates in collapsed_df must be in new_dates&quot;</span>
+
+    
+    <span class="k">def</span> <span class="nf">get_spread_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collapsed_df</span><span class="p">:</span> <span class="n">CollapsedDf</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">max_spread_boundaries</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpreadDf</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_spread_inputs</span><span class="p">(</span><span class="n">collapsed_df</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">)</span>
+        
+        <span class="n">old_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;dates&#39;</span><span class="p">:</span><span class="n">collapsed_df</span><span class="o">.</span><span class="n">closest_new_date</span><span class="p">,</span> 
+            <span class="s1">&#39;amounts&#39;</span><span class="p">:</span> <span class="n">collapsed_df</span><span class="o">.</span><span class="n">amounts</span><span class="p">})</span>
+        <span class="c1"># TODO: </span>
+        <span class="k">if</span> <span class="n">max_spread_boundaries</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
+            <span class="c1"># TODO: implement</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="n">max_spread_boundaries</span> <span class="o">==</span> <span class="s2">&quot;M&quot;</span><span class="p">:</span>
+            <span class="c1"># TODO: implement</span>
+            <span class="k">pass</span>
+
+        <span class="n">new_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;new_dates&#39;</span><span class="p">:</span> <span class="n">new_dates</span> <span class="p">,</span>
+            <span class="s1">&#39;closest_old_date&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_closest_old_date</span><span class="p">(</span><span class="n">new_dates</span><span class="p">,</span> <span class="n">collapsed_df</span><span class="o">.</span><span class="n">closest_new_date</span><span class="p">),</span>
+            <span class="s1">&#39;amounts&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+        <span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">group_df</span> <span class="ow">in</span> <span class="n">new_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;closest_old_date&#39;</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">spread_amounts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spread_amounts</span><span class="p">(</span>
+                <span class="n">old_df</span><span class="p">[</span><span class="n">old_df</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">group</span><span class="p">][</span><span class="s1">&#39;amounts&#39;</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">group_df</span><span class="p">))</span>
+            <span class="n">new_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">group_df</span><span class="p">,</span> <span class="s1">&#39;amounts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">spread_amounts</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SpreadDf</span><span class="p">(</span><span class="n">amounts</span> <span class="o">=</span> <span class="n">new_df</span><span class="p">[</span><span class="s1">&#39;amounts&#39;</span><span class="p">],</span> <span class="n">new_dates</span> <span class="o">=</span> <span class="n">new_df</span><span class="p">[</span><span class="s1">&#39;new_dates&#39;</span><span class="p">])</span>
+
+
+
+<span class="k">class</span> <span class="nc">Collapser</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_use_sum</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">amounts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_use_first</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">amounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_use_last</span><span class="p">(</span> <span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">amounts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_use_max</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">amounts</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_use_mean</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">amounts</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_use_min</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">amounts</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">_closest_new_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_dates</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">):</span>
+        <span class="c1"># assume payments in arrears so old dates after new date could still apply to last new_date, so add trailing new_date</span>
+        <span class="c1"># TODO: add trailing new_date</span>
+        <span class="n">trailing_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">new_dates</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">365</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="c1"># TODO: use max spread period</span>
+        <span class="n">new_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">new_dates</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">trailing_date</span><span class="p">])</span>
+        <span class="c1"># collate new_dates wit 1/1/ of each year between new_dats min and trailing date </span>
+        <span class="n">date_boundaries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">new_dates</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">trailing_date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+        <span class="n">new_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">new_dates</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">date_boundaries</span><span class="p">))))</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">old_dates</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="c1"># TODO: change per arrears/adv</span>
+
+    <span class="k">def</span> <span class="nf">_collapse_amounts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_sum</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">get_collapsed_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orig_df</span><span class="p">:</span> <span class="n">OrigDf</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CollapsedDf</span><span class="p">:</span>
+        <span class="n">old_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="p">{</span><span class="s1">&#39;dates&#39;</span><span class="p">:</span> <span class="n">orig_df</span><span class="o">.</span><span class="n">dates</span><span class="p">,</span> 
+             <span class="s1">&#39;amounts&#39;</span><span class="p">:</span> <span class="n">orig_df</span><span class="o">.</span><span class="n">amounts</span><span class="p">,</span>
+            <span class="p">})</span>
+            
+        <span class="n">old_df</span><span class="p">[</span><span class="s1">&#39;closest_new_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_closest_new_date</span><span class="p">(</span><span class="n">old_df</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">],</span> <span class="n">new_dates</span><span class="p">))</span>
+        <span class="n">collapsed_amounts</span> <span class="o">=</span> <span class="n">old_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;closest_new_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;amounts&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collapse_amounts</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;amounts&#39;</span><span class="p">])}),</span> <span class="n">include_groups</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        
+            
+        <span class="k">return</span> <span class="n">CollapsedDf</span><span class="p">(</span>
+            <span class="n">amounts</span> <span class="o">=</span> <span class="n">collapsed_amounts</span><span class="p">[</span><span class="s1">&#39;amounts&#39;</span><span class="p">],</span> 
+            <span class="n">closest_new_date</span> <span class="o">=</span> <span class="n">collapsed_amounts</span><span class="p">[</span><span class="s1">&#39;closest_new_date&#39;</span><span class="p">])</span>
+
+    
+<span class="k">class</span> <span class="nc">Timectrl</span><span class="p">:</span>
+        
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spreader</span><span class="p">,</span> <span class="n">collapser</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spreader</span> <span class="o">=</span> <span class="n">spreader</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collapser</span> <span class="o">=</span> <span class="n">collapser</span>
+                
+    <span class="k">def</span> <span class="nf">get_new_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">,</span> <span class="n">max_spread_boundaries</span><span class="p">):</span>
+        <span class="n">collapsed_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collapser</span><span class="o">.</span><span class="n">get_collapsed_df</span><span class="p">(</span>
+            <span class="n">OrigDf</span><span class="p">(</span><span class="n">amounts</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">amounts</span><span class="p">),</span> <span class="n">dates</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dates</span><span class="p">)),</span> 
+            <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">new_dates</span><span class="p">))</span>
+        <span class="n">new_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spreader</span><span class="o">.</span><span class="n">get_spread_df</span><span class="p">(</span><span class="n">collapsed_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">new_dates</span><span class="p">),</span> <span class="n">max_spread_boundaries</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_df</span> 
+
+<span class="c1">### implementations</span>
+
+<span class="c1"># advance rate spreader/collapser for year boundaries</span>
+<span class="k">class</span> <span class="nc">rate_spread</span><span class="p">(</span><span class="n">Spreader</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_spread_amounts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repeat_average</span><span class="p">(</span><span class="n">amounts</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    
+<span class="k">class</span> <span class="nc">rate_collapse</span><span class="p">(</span><span class="n">Collapser</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_collapse_amounts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amounts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_mean</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_closest_new_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_dates</span><span class="p">,</span> <span class="n">new_dates</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">old_dates</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">new_dates</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+    
+<span class="n">rate_transformer</span> <span class="o">=</span> <span class="n">Timectrl</span><span class="p">(</span><span class="n">spreader</span> <span class="o">=</span> <span class="n">rate_spread</span><span class="p">(),</span> <span class="n">collapser</span> <span class="o">=</span> <span class="n">rate_collapse</span><span class="p">())</span>
+<span class="n">new_df</span> <span class="o">=</span> <span class="n">rate_transformer</span><span class="o">.</span><span class="n">get_new_df</span><span class="p">(</span>
+    <span class="n">amounts</span><span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+    <span class="n">dates</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-01-06&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-01-07&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-01-08&#39;</span><span class="p">],</span> 
+    <span class="n">new_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span>  <span class="s1">&#39;2019-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-01-03&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-01-04&#39;</span><span class="p">,</span><span class="s1">&#39;2019-01-10&#39;</span><span class="p">],</span> 
+    <span class="n">max_spread_boundaries</span> <span class="o">=</span> <span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">new_df</span><span class="p">)</span>
+
+<span class="c1"># arrears payments annual boundaries</span>
+
+<span class="c1"># advance payments annual boundaries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>amounts=0    1.0
+1    1.0
+2    1.0
+3    3.0
+4    3.0
+Name: amounts, dtype: float64 new_dates=0   2019-01-01
+1   2019-01-02
+2   2019-01-03
+3   2019-01-04
+4   2019-01-10
+Name: new_dates, dtype: datetime64[ns]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_12941/1902047314.py:79: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;[1.0, 1.0, 1.0]&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  new_df.loc[group_df, &#39;amounts&#39;] = list(spread_amounts)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
